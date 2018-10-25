@@ -1,26 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import { Theme as UWPThemeProvider, getTheme } from "react-uwp/Theme";
+import MyComponent from "./MyComponent";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <UWPThemeProvider
+        theme={getTheme({
+          themeName: "dark", // set custom theme
+          accent: "#0078D7", // set accent color
+          useFluentDesign: true, // sure you want use new fluent design.
+          desktopBackgroundImage: 'https://www.react-uwp.com/HEAD/static/images/golden-gate-bridge-2037990_1280.1D7oi.jpg'
+        })}
+      >
+        <MyComponent />
+      </UWPThemeProvider>
     );
   }
 }
